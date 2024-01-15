@@ -1,1 +1,3 @@
-#  Weather-app
+#  Weathering-app
+
+A simple weather app.
