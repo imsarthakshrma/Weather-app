@@ -1,12 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weathring</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+    <title>Weathering</title>
+    <link rel="shortcut icon" href="./public/headerlogo.png" type="image/x-icon" />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./public/material-symbol-rounded.woff2">
+    <!--  <link rel="stylesheet" href="./assets/css/media-query.css" />-->
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#/current-location" class="logo">
+                <img src="./public/logo1.png" width="420" height="60" alt="logo" />
+            </a>
+
+            <div class="search-view" data-search-view>
+                <div class="search-wrapper">
+                    <input autocomplete="off" type="search" name="search" placeholder="Search city ..."
+                        class="search-field" data-search-field />
+                    <span class="m-icon leading-icon">search</span>
+                    <button class="icon-btn leading-icon has-state" aria-label="close search" data-search-toggler>
+                        <span class="m-icon">arrow_back</span>
+                    </button>
+                </div>
+
+                <div class="search-result" data-search-result>
+                  <ul class="m-icon" data-search-list>
+
+                    <li class="view-item">
+                      <span class="item-title">location_on</span>
+
+                      <div>
+                        <p class="item-title">London</p>
+                        <p class="label-2 item-subtitle">State of London, GB</p>
+                      </div>
+
+                      <a href="#" class="item-link has-state" data-search-toggler></a>
+                    </li>
+
+                  </ul>
+
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button class="icon-btn has-state" aria-label="open search" data-search-toggler>
+                    <span class="m-icon icon">search</span>
+                </button>
+                <a href="#/current-location" class="btn-primary has-state" data-current-location-btn>
+                    <span class="m-icon">my_location</span>
+                    <span id="current-location-span" class="span">Current Location</span>
+                </a>
+            </div>
+
+
+        </div>
+    </header>
+
+
+    <main>
+        <article class="container" data-container>
+            <div class="content-left">
+                <section class="section current-weather" aria-label="current weather" data-current-weather>
+                    <div class="card card-lg current-weather-card">
+
+                        <h2 class="title-2 card-title">Now</h2>
+
+                        <div class="weapper">
+                            <p class="heading">25&deg; <sup>c</sup></p>
+
+                            <img src="./public/weather_icons/01d.png" width="64"
+                            height="64" alt="Overcast Clouds" class="weather-icon">
+                        </div>
+                        <p class="body-3">Overcast Clouds</p>
+                        <ul class="meta-list">
+                            <li class="meta-item">
+                                <span class="m-icon">calander_today</span>
+                                <p class="title-3 meta-text">Thursday 16, Jan</p>
+                            </li>
+                            <li class="meta-item">
+                                <span class="m-icon">location_on</span>
+                                <p class="title-3 meta-text">London, GB</p>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </section>
+
+
+
+
+                <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast>
+                    <h2 class="title-2" id="forecast-label">% Days Forecast</h2>
+
+                    <div class="card card-lg forecast-card">
+                        <ul>
+
+                            <li class="card-item">
+
+                                <div class="icon-wrapper">
+                                    <img src="./public/weather_icons/01n.png" alt="Overcast Clouds" 
+                                    width="36" class="weather-icon">
+
+                                    <span class="span">
+                                        <p class="title-2">25</p>
+                                    </span>
+                                </div>
+                                <p class="label-1">18 Jan</p>
+
+                                <p class="label-1">Thursday</p>
+
+                            </li>
+                        </ul>  
+
+
+                    </div>
+                </section>
+            </div>
+
+
+
+            <div class="content-right">
+                <section class="section highlights" aria-labelledby="highlights-label" data-highlights>
+                    <div class="card card-lg">
+                    </div>
+                </section>
+                <section class="section hourly-forecast" aria-label="hourly forecast" data-hourly-forecast>
+
+                </section>
+
+                <footer class="footer">
+                    <p class="body-3">
+                        Copyrights Sathak Sharma 2024. All Rights Reserved
+                    </p>
+                    <p class="body-3">
+                        Powered By
+                        <a href="https://openweathermap.org/api" title="Free Open Weather API" target="_blank"
+                            rel="noopener">
+                            <img src="./public/openweather.png" width="150" height="30" loading="lazy"
+                                alt="OpenWeather" srcset="" />
+                        </a>
+                    </p>
+                </footer>
+            </div>
+
+            <div class="loading" data-loading>
+
+            </div>
+        </article>
+    </main>
+
+    <section class="error-content" data-error-content>
+        <h2 class="heading">404</h2>
+        <p class="body-1">Page not found!</p>
+        <a href="#/current-location" class="btn-primary">
+            <span class="span">Go Home</span>
+        </a>
+    </section>
+
+    <script type="module" src="./src/app.js"></script>
+    <script type="module" src="./src/route.js"></script>
+</body>
+
 </html>
